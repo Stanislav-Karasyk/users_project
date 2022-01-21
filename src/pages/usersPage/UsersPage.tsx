@@ -1,11 +1,7 @@
-import logo from '../../assets/logoUsers.svg';
+import UserList from '../../components/UsersList/UserList';
+
 function UsersPage() {
-  return (
-    <>
-      <img src={logo} alt="" width="100" />
-      <h2>UsersPage</h2>
-    </>
-  );
+  return <UserList />;
 }
 
 export default UsersPage;

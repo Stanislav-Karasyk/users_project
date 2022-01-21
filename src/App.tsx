@@ -1,9 +1,14 @@
-import UsersPage from './pages/usersPage/UsersPage';
+import Container from './components/Container/Container';
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 
 const App = () => {
   return (
     <>
-      <UsersPage />
+        <Header />
+      <Container>
+        <Main />
+      </Container>
     </>
   );
 };
