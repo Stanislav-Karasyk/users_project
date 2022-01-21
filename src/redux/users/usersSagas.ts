@@ -15,7 +15,6 @@ interface IParams {
 function* fetchUsersWorker({ payload }: IParams): Generator {
   try {
     const users = (yield call(fetchUsers)) as IUser[];
-    console.log("users >>>",users);
     yield put(fetchUsersSuccess(users));
   } catch (error) {
     yield put(fetchUsersError(error));

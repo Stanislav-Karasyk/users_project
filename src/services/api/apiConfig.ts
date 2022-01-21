@@ -5,6 +5,7 @@ const apiConfig = {
     results: 20,
   },
   params: {
+    seed: 'foobar',
     exc: 'email,cell,id,nat',
   },
 };
