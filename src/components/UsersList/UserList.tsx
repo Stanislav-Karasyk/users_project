@@ -23,7 +23,7 @@ function UserList() {
     if (fetching) {
       let page = Number(searchParams.get('page'));
       page += 1;
-      
+
       dispatch(fetchUsersRequest({ page, results: 10 }));
       setSearchParams(`page=${page}`);
       setFetching(false);

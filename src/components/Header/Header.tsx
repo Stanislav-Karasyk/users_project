@@ -1,10 +1,10 @@
-import NavBar from "../NavBar/NavBar";
+import NavBar from '../NavBar/NavBar';
 
 function Header() {
   return (
-      <header>
-          <NavBar/>
-      </header>
+    <header>
+      <NavBar />
+    </header>
   );
 }
 

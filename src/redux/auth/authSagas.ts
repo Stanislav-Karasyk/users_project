@@ -6,7 +6,7 @@ function* loginWorker() {
   const auth = localStorage.getItem('auth');
   try {
     if (!auth) {
-      localStorage.setItem('auth', 'auth');
+      localStorage.setItem('auth', 'authorized');
     }
     yield put(loginSuccess());
   } catch (error) {

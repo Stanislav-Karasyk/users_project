@@ -6,11 +6,11 @@
   padding-left: 25px;
   padding-right: 25px;
 }
-.list{
+.list {
   display: flex;
   justify-content: space-between;
-  
-  width: 400px;
+
+  width: 500px;
 }
 
 .navLink {
@@ -34,4 +34,9 @@
     cursor: pointer;
     text-decoration-line: underline;
   }
+}
+
+.navLinkActivated{
+  text-decoration-line: underline;
+
 }
