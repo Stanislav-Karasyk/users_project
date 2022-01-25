@@ -5,8 +5,9 @@ interface IAction<T> {
   payload?: T;
 }
 
-export const fetchUsersRequest = <T>(): IAction<T> => ({
+export const fetchUsersRequest = <T>(data?: T): IAction<T> => ({
   type: type.FETCH_USERS_REQUEST,
+  payload: data,
 });
 
 export const fetchUsersSuccess = <T>(data: T): IAction<T> => ({
@@ -16,5 +17,10 @@ export const fetchUsersSuccess = <T>(data: T): IAction<T> => ({
 
 export const fetchUsersError = <T>(data: T): IAction<T> => ({
   type: type.FETCH_USERS_ERROR,
+  payload: data,
+});
+
+export const fetchMoreUsersSuccess = <T>(data: T): IAction<T> => ({
+  type: type.FETCH_MORE_USERS_SUCCESS,
   payload: data,
 });

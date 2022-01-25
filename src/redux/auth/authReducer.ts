@@ -6,7 +6,7 @@ interface IInitAuthState {
 }
 
 const initialState: IInitAuthState = {
-  isAuthenticated: false,
+  isAuthenticated: Boolean(localStorage.getItem('auth')),
 };
 
 const authReducer = <T>(state = initialState, action: IAction<T>) => {

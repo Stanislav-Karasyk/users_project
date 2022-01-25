@@ -11,7 +11,10 @@ function NavBar() {
 
   const dispatch = useDispatch();
 
-  const onLogout = () => dispatch(logoutRequest());
+  const onLogout = () => {
+    dispatch(logoutRequest());
+    localStorage.clear();
+  };
 
   return (
     <nav className={styles.nav}>

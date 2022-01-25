@@ -3,7 +3,11 @@ import { put, takeLatest } from 'redux-saga/effects';
 import * as type from './authTypes';
 
 function* loginWorker() {
+  const auth = localStorage.getItem('auth');
   try {
+    if (!auth) {
+      localStorage.setItem('auth', 'auth');
+    }
     yield put(loginSuccess());
   } catch (error) {
     return error;
