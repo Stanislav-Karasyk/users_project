@@ -1,0 +1,17 @@
+.wrap {
+  padding-top: 30px;
+}
+
+.logInBtn {
+  display: block;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  color: black;
+  font-size: 25px;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+  }
+}

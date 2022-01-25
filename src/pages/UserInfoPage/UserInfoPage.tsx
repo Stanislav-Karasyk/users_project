@@ -6,7 +6,7 @@ import styles from './UserInfoPage.module.scss';
 
 function UserInfoPage() {
   const location = useLocation();
-  console.log(location.state as IUser);
+
   return (
     <>
       {location.pathname === Path.USER_INFO ? (

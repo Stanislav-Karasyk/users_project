@@ -1,20 +1,41 @@
+import { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Path } from '../../constants/path';
-import LoginPage from '../../pages/LoginPage/LoginPage';
-import UserInfoPage from '../../pages/UserInfoPage/UserInfoPage';
-import UsersPage from '../../pages/UsersPage/UsersPage';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import PublicRoute from '../PublicRoute/PublicRoute';
+
+const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'));
+const UsersPage = lazy(() => import('../../pages/UsersPage/UsersPage'));
+const UserInfoPage = lazy(
+  () => import('../../pages/UserInfoPage/UserInfoPage'),
+);
 
 function Main() {
+  // const isLoggedIn = useSelector(isAuthenticated);
   return (
     <main>
-      <Routes>
-        <Route path="/" element={<Navigate replace to={Path.LOGIN} />} />
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <Routes>
+          <Route
+            path={Path.LOGIN}
+            element={<PublicRoute component={LoginPage} />}
+          />
+          <Route
+            path={Path.USERS}
+            element={<PrivateRoute component={UsersPage} />}
+          />
+          <Route
+            path={Path.USER_INFO}
+            element={<PrivateRoute component={UserInfoPage} />}
+          />
+          <Route
+            path={Path.USER_ID}
+            element={<PrivateRoute component={UserInfoPage} />}
+          />
 
-        <Route path={Path.LOGIN} element={<LoginPage />} />
-        <Route path={Path.USERS} element={<UsersPage />} />
-        <Route path={Path.USER_INFO} element={<UserInfoPage />} />
-        <Route path={Path.USER_ID} element={<UserInfoPage />} />
-      </Routes>
+          <Route path="/" element={<Navigate replace to={Path.LOGIN} />} />
+        </Routes>
+      </Suspense>
     </main>
   );
 }
