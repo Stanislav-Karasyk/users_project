@@ -8,18 +8,15 @@ import styles from './UserList.module.scss';
 
 function UserList() {
   const dispatch = useDispatch();
-
   const users = useSelector(getUsers);
-
   const [searchParams, setSearchParams] = useSearchParams();
-
   const [fetching, setFetching] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchUsersRequest());
-  }, [dispatch]);
+    if (users.length < 20) {
+      dispatch(fetchUsersRequest());
+    }
 
-  useEffect(() => {
     if (fetching) {
       let page = Number(searchParams.get('page'));
       page += 1;
@@ -28,7 +25,7 @@ function UserList() {
       setSearchParams(`page=${page}`);
       setFetching(false);
     }
-  }, [fetching, dispatch, searchParams, setSearchParams]);
+  }, [fetching, dispatch, searchParams, setSearchParams, users.length]);
 
   useEffect(() => {
     document.addEventListener('scroll', scrollHandler);
@@ -39,7 +36,7 @@ function UserList() {
   const scrollHandler = (event: Event) => {
     const target = (event.target as Document).documentElement;
 
-    if (target.scrollHeight - (target.scrollTop + window.innerHeight) < 100) {
+    if (target.scrollHeight - (target.scrollTop + window.innerHeight) < 1) {
       setFetching(true);
     }
   };

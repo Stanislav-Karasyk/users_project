@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { Path } from '../../constants/path';
-import { isAuthenticated } from '../../redux/auth/authSelectors';
+import { Path } from '../constants/path';
+import { isAuthenticated } from '../redux/auth/authSelectors';
 
 interface IProps {
   component: React.ComponentType;
