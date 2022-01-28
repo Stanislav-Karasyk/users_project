@@ -13,7 +13,6 @@ function User({ user }: IProps) {
       <NavLink
         className={styles.link}
         to={`${Path.USER_INFO}/${user.login.uuid}`}
-        state={user}
       >
         <img className={styles.avatar} src={user.picture.large} alt="" />
         <p className={styles.name}>{`${user.name.first} ${user.name.last}`}</p>

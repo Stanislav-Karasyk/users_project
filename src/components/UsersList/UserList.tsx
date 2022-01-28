@@ -43,8 +43,8 @@ function UserList() {
 
   return (
     <ul className={styles.list}>
-      {users.map(user => (
-        <User key={user.login.uuid} user={user} />
+      {users.map((user, index) => (
+        <User key={index} user={user} />
       ))}
     </ul>
   );
