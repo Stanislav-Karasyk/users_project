@@ -7,6 +7,7 @@ import logo from '../../assets/logoUsers.svg';
 import { isAuthenticated } from '../../redux/auth/authSelectors';
 import { logoutRequest } from '../../redux/auth/authActions';
 import LanguageBlock from '../LanguageBlock/LanguageBlock';
+import { useCallback } from 'react';
 
 function NavBar() {
   const isLoggedIn = useSelector(isAuthenticated);
@@ -14,10 +15,10 @@ function NavBar() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  const onLogout = () => {
+  const onLogout = useCallback(() => {
     dispatch(logoutRequest());
     localStorage.clear();
-  };
+  }, [dispatch]);
 
   const setClass = ({ isActive }: { isActive: boolean }) =>
     `${styles.navLink}` + (isActive ? ` ${styles.navLinkActivated}` : '');
