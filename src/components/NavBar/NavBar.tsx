@@ -1,25 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 import { Path } from '../../constants/path';
 import styles from './NavBar.module.scss';
 import logo from '../../assets/logoUsers.svg';
-import { isAuthenticated } from '../../redux/auth/authSelectors';
-import { logoutRequest } from '../../redux/auth/authActions';
-import LanguageBlock from '../LanguageBlock/LanguageBlock';
-import { useCallback } from 'react';
+import LanguageBlockContainer from '../containers/LanguageBlockContainer';
+import { IParamsNavBar } from '../../interfaces/usersInterfaces';
 
-function NavBar() {
-  const isLoggedIn = useSelector(isAuthenticated);
-
-  const dispatch = useDispatch();
-  const { t } = useTranslation();
-
-  const onLogout = useCallback(() => {
-    dispatch(logoutRequest());
-    localStorage.clear();
-  }, [dispatch]);
-
+function NavBar({ isLoggedIn, onLogout, t }: IParamsNavBar) {
   const setClass = ({ isActive }: { isActive: boolean }) =>
     `${styles.navLink}` + (isActive ? ` ${styles.navLinkActivated}` : '');
 
@@ -28,7 +14,7 @@ function NavBar() {
       <NavLink to={Path.USERS}>
         <img src={logo} alt="" width="100" />
       </NavLink>
-      <LanguageBlock />
+      <LanguageBlockContainer />
       {isLoggedIn && (
         <ul className={styles.list}>
           <li>

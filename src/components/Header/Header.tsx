@@ -1,9 +1,9 @@
-import NavBar from '../NavBar/NavBar';
+import NavBarContainer from '../containers/NavBarContainer';
 
 function Header() {
   return (
     <header>
-      <NavBar />
+      <NavBarContainer />
     </header>
   );
 }

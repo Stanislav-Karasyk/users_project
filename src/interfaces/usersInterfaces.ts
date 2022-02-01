@@ -65,3 +65,32 @@ export interface IAction<T> {
   type: string;
   payload: T & T[];
 }
+
+export interface IParamsLanguage {
+  onChangeLanguage: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export interface IParamsUser {
+  user: IUser;
+}
+export interface IParamsUsers {
+  users: IUser[];
+}
+export interface IParamsWrapper {
+  children: React.ReactNode;
+}
+
+export interface IParamsNavBar {
+  isLoggedIn: boolean;
+  onLogout: () => void;
+  t: (value: string) => string;
+}
+export interface IParamsLogin {
+  onLogin: () => void;
+  t: (value: string) => string;
+}
+
+export interface IParamsFetchUsers {
+  page: number;
+  results: number;
+}

@@ -1,15 +1,7 @@
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { IUser } from '../../interfaces/usersInterfaces';
-import { getUsers } from '../../redux/users/usersSelectors';
+import { IParamsUser } from '../../interfaces/usersInterfaces';
 import styles from './UserInfo.module.scss';
 
-function UserInfo() {
-  const users = useSelector(getUsers);
-  const { id } = useParams();
-
-  const user = users.find(user => user.login.uuid === id) as IUser;
-
+function UserInfo({ user }: IParamsUser) {
   return (
     <div className={`${styles.user} ${styles[user.gender]}`}>
       <img className={styles.avatar} src={user.picture.large} alt="" />

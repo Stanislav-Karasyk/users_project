@@ -1,7 +1,7 @@
-import UserList from '../../components/UsersList/UserList';
+import UserListContainer from '../../components/containers/UserListContainer';
 
 function UsersPage() {
-  return <UserList />;
+  return <UserListContainer />;
 }
 
 export default UsersPage;

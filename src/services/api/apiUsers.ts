@@ -1,25 +1,24 @@
 import axios from 'axios';
 import apiConfig from './apiConfig';
-import { IUser } from './../../interfaces/usersInterfaces';
-
-interface IParams {
-  page: number;
-  results: number;
-}
+import { IParamsFetchUsers, IUser } from './../../interfaces/usersInterfaces';
 
 axios.defaults.baseURL = apiConfig.baseUrl;
 
-axios.defaults.params = { ...apiConfig.params };
-
-const fetchUsers = async (options?: IParams): Promise<IUser[]> => {
+const fetchUsers = async (options?: IParamsFetchUsers): Promise<IUser[]> => {
   options = options || apiConfig.defaultFetch;
 
-  axios.defaults.params.page = options.page;
-  axios.defaults.params.results = options.results;
+  const requestConfig = {
+    params: {
+      page: options.page,
+      results: options.results,
+      seed: apiConfig.params.seed,
+      exc: apiConfig.params.exc,
+    },
+  };
 
   const {
     data: { results },
-  } = await axios.get('/');
+  } = await axios.get('/', requestConfig);
 
   return results;
 };

@@ -4,6 +4,9 @@ const apiConfig = {
     page: 1,
     results: 20,
   },
+  newFetch: {
+    results: 10,
+  },
   params: {
     seed: 'foobar',
     exc: 'email,cell,id,nat',
