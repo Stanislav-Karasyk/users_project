@@ -9,6 +9,7 @@ import UserInfoContainer from '../../components/containers/UserInfoContainer';
 function UserInfoPage() {
   const location = useLocation();
   const { t } = useTranslation();
+  
   const users = useSelector(getUsers);
 
   return (
