@@ -4,8 +4,8 @@ import { Path } from '../constants/path';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
-const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
-const UsersPage = lazy(() => import('../pages/UsersPage/UsersPage'));
+const LoginPage = lazy(() => import('../pages/loginPage/LoginPage'));
+const UsersPage = lazy(() => import('../pages/usersPage/UsersPage'));
 const UserInfoPage = lazy(() => import('../pages/UserInfoPage/UserInfoPage'));
 
 export const Routes = () => (
